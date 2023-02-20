@@ -1,0 +1,22 @@
+<div class="form-container" *ngIf="detailForm">
+    <h5>Add Note:</h5>
+    <form [formGroup]="detailForm" class="form-group col-lg-12">
+        <div class="control-div">
+            <label for="title" class="col-lg-4">
+                Title<sup>*</sup>
+            </label>
+            <input id="title" class="col-lg-8 form-control" name="title" formControlName="title" />
+        </div>
+        <div class="control-div">
+            <label for="description" class="col-lg-4">
+                Description
+            </label>
+            <textarea id="description" name="description" formControlName="description"
+                class="form-control col-lg-8"></textarea>
+        </div>
+        <div>
+            <button class="btn btn-md col-lg-4" (click)="addToNotesList()">{{noteData ? 'Update' : 'Add'}}</button>
+            <button class="btn btn-md btn-danger col-lg-4" (click)="backToList()">Cancel</button>
+        </div>
+    </form>
+</div>

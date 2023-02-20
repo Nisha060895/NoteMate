@@ -1,0 +1,17 @@
+<div #container class="note-card-container" (click)="editNoteFn()">
+
+    <div class="note-card-content">
+        <h1 class="note-card-title">
+            {{note.title | uppercase}}
+        </h1>
+
+        <div class="note-card-body">
+            {{note.description}}
+        </div>
+    </div>
+
+    <div class="x-button" (click)="deleteItem()">
+
+    </div>
+
+</div>

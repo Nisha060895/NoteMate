@@ -1,0 +1,24 @@
+<div class="main-container">
+
+    <div class="search-bar-container" *ngIf="!displayForm && notesList.length !== 0">
+        <input class="form-control" type="text" name="search" placeholder="Filter" (keyup)="search()" [(ngModel)]="searchVal"/>
+    </div>
+
+    <div class="notes-list" *ngIf="!displayForm">
+        <ng-container *ngIf="filteredList.length else noData">
+            <ng-container *ngFor="let note of filteredList">
+                <app-note-card [note]="note" (editNote)="editNotePage(note)"></app-note-card>
+            </ng-container>
+        </ng-container>
+        <ng-template #noData>
+            <h6 class="mx-2">No notes available.</h6>
+        </ng-template>
+    </div>
+
+    <div [@showHideForm]="displayForm ? 'show': 'hide'" *ngIf="displayForm">
+        <app-note-form [noteData]="noteData" (hideForm)="hideForm()"></app-note-form>
+    </div>
+
+    <button class="btn btn-lg add-btn" (click)="addNote()" *ngIf="!displayForm">Add Note</button>
+
+</div>
